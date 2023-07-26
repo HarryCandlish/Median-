@@ -16,7 +16,7 @@ class Header extends Component {
    render () {
    return (
      <nav className='navbar'>
-      <h2 className='navbar-logo'>Median</h2>
+      <Link to='/'><h2 className='navbar-logo'>Median</h2></Link>
 
       <div className='menu-icons' onClick={this.handleClick}>
       <i>{this.state.clicked ? <RxHamburgerMenu/> : <RxCross1/>}</i>
@@ -30,7 +30,7 @@ class Header extends Component {
                      <h3>{item.title}</h3></Link>
                </li>
             )})}
-            <button>Subscribe</button>
+            <Link to="/registration"><button className='btn-nav'>Subscribe</button></Link>
          </ul>
    </nav>
    );
