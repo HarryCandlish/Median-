@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
 
 import {NewsPosts} from '../data/NewsPosts'
 import '../styles/home.css'
@@ -11,14 +13,14 @@ const Home = () => {
         return ( 
              <li key={index}>
               <h1 className='pri-one'>{post.title} </h1>
-                <img src={post.image} alt="image" />
+                <Link to={`post/${post.id}`}><img src={post.image} alt="image" /></Link>
               <p>{post.description}</p>
           </li>
       )} else {
         return (
           <li key={index}>
           <h1 className='pri-two'>{post.title} </h1>
-            <img src={post.image} alt="imagetwo" />
+          <Link to={`post/${post.id}`}><img src={post.image} alt="image" /></Link>
           <p>{post.description}</p>
       </li>
         )
