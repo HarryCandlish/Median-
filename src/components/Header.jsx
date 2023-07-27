@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <nav className='navbar'>
       <div className='navbar-container'>
-         <Link to='/' className='navbar=logo'>
+         <Link to='/' className='navbar-logo'>
             <h1>Median</h1>
          </Link>
          <div className="menu-icon" onClick={toggleMenu}>
@@ -35,7 +35,7 @@ const Header = () => {
             </li>
             <li className='nav-item'>
                <Link to='/registration' className='nav-links' onClick={toggleMenu}>
-                  <button>Subscribe</button>
+                  <button className='btn-subscribe'>Subscribe</button>
                </Link>
             </li>
          </ul>

@@ -20,8 +20,9 @@
   
   .navbar-logo {
     color: #fff;
-    font-size: 24px;
+    font-size: 22px;
     text-decoration: none;
+
   }
   
   .menu-icon {
@@ -29,6 +30,8 @@
     color: #fff;
     font-size: 24px;
     cursor: pointer;
+    top: 10px;
+    position: relative;
   }
   
   .nav-menu {
@@ -76,3 +79,12 @@
     }
   }
   
+  .btn-subscribe {
+    background-color: bisque;
+    padding: 0.5rem;
+    border-radius: 10%;
+  }
+
+  .btn-subscribe:hover {
+    background-color: aqua;
+  }

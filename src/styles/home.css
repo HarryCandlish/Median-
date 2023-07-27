@@ -1,7 +1,41 @@
-.pri-one {
-    color: brown;
-}
-
-.pri-two {
-    color: blue;
-}
+.grid-container {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .big-item {
+    flex: 2;
+    background-color: #ccc;
+    padding: 20px;
+  }
+  
+  .small-item {
+    flex: 1;
+    background-color: #aaa;
+    padding: 10px;
+  }
+  
+  .big-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .small-image {
+    max-width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+  
+  /* Adjust the layout on smaller screens */
+  @media screen and (max-width: 768px) {
+    .grid-container {
+      flex-direction: column;
+    }
+  
+    .big-item,
+    .small-item {
+      flex: 1;
+    }
+  }
+  
