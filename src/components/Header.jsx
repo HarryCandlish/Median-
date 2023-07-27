@@ -1,40 +1,49 @@
 import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
 import '../styles/header.css'
-import {MenuItems} from '../data/MenuItems'
 import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx'
 
-import React, { Component} from 'react';
+const Header = () => {
 
+   const [isOpen, setIsOpen] = useState(false);
 
-
-class Header extends Component {
-   state = {clicked: false};
-   handleClick = () => {
-      this.setState({clicked: !this.state.clicked})
+   const toggleMenu = () => {
+      setIsOpen(!isOpen);
    }
-   render () {
-   return (
-     <nav className='navbar'>
-      <Link to='/'><h2 className='navbar-logo'>Median</h2></Link>
+;
+  return (
+    <nav className='navbar'>
+      <div className='navbar-container'>
+         <Link to='/' className='navbar=logo'>
+            <h1>Median</h1>
+         </Link>
+         <div className="menu-icon" onClick={toggleMenu}>
+            {isOpen ? <RxCross1/> : <RxHamburgerMenu/>}
+         </div>
 
-      <div className='menu-icons' onClick={this.handleClick}>
-      <i>{this.state.clicked ? <RxHamburgerMenu/> : <RxCross1/>}</i>
+         <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
+            <li className='nav-item'>
+               <Link to='/' className='nav-links' onClick={toggleMenu}>
+                  Home
+               </Link>
+            </li>
+            <li className='nav-item'>
+               <Link to='/about' className='nav-links' onClick={toggleMenu}>
+                  About
+               </Link>
+            </li>
+            <li className='nav-item'>
+               <Link to='/registration' className='nav-links' onClick={toggleMenu}>
+                  <button>Subscribe</button>
+               </Link>
+            </li>
+         </ul>
       </div>
 
-         <ul className='navbar-menu'>
-            {MenuItems.map((item, index) => {
-               return ( 
-               <li key={index}>
-                  <Link className={item.cName} to={item.url}>
-                     <h3>{item.title}</h3></Link>
-               </li>
-            )})}
-            <Link to="/registration"><button className='btn-nav'>Subscribe</button></Link>
-         </ul>
-   </nav>
-   );
-};
-};
+    </nav>
+  )
+}
+
 
 export default Header
