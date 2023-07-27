@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { NewsPosts } from '../data/NewsPosts';
 import '../styles/home.css';
 
+import QuoteGenerator from '../components/QuoteGenerator';
+
 const Home = () => {
   return (
     <div>
@@ -24,6 +26,7 @@ const Home = () => {
           </li>
         ))}
       </ul>
+      <QuoteGenerator/>
     </div>
   );
 };
