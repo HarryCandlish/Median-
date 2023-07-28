@@ -26,7 +26,9 @@ const Home = () => {
           </li>
         ))}
       </ul>
+      <div>
       <QuoteGenerator/>
+      </div>
     </div>
   );
 };
