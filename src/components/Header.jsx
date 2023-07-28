@@ -21,6 +21,7 @@ const Header = () => {
          <Link to='/' className='navbar-logo'>
             <h1>Median</h1>
          </Link>
+         <Search className="search-bar" data={NewsPosts}/>
          <div className="menu-icon" onClick={toggleMenu}>
             {isOpen ? <RxCross1/> : <RxHamburgerMenu/>}
          </div>
@@ -41,7 +42,6 @@ const Header = () => {
                </Link>
             </li>
          </ul>
-         <Search className="search-bar" data={NewsPosts}/>
       </div>
 
     </nav>

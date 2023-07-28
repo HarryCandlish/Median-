@@ -1,10 +1,9 @@
 .navbar {
-    background-color: #333;
+    background-color: #66CDAA;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    position: sticky;
     top: 0;
     z-index: 999;
   }
@@ -80,7 +79,7 @@
   }
   
   .btn-subscribe {
-    background-color: bisque;
+    background-color: #002D62;
     padding: 0.5rem;
     border-radius: 10%;
   }
@@ -88,3 +87,41 @@
   .btn-subscribe:hover {
     background-color: aqua;
   }
+
+  /* ... (existing styles) */
+
+/* Correct the class name to 'search-icon' */
+.search-icon {
+  /* Add margin-right to the SlMagnifier to create space between it and the Search */
+  margin-right: 8px;
+}
+
+/* Hide the menu icon on small screens */
+.menu-icon {
+  display: none;
+}
+
+/* Show the menu icon when the search is clicked (small screen) */
+.active .menu-icon {
+  display: block;
+}
+
+/* Hide the search bar by default (small screen) */
+.search-bar {
+  display: none;
+}
+
+/* Show the search bar when the menu is clicked (small screen) */
+.active .search-bar {
+  display: block;
+}
+
+/* Optional: Add media query for responsiveness */
+@media screen and (max-width: 768px) {
+  /* Hide the magnifier icon on small screens */
+  
+  /* Show the menu icon and hide the logo on small screens */
+  .menu-icon {
+    display: block;
+  }
+}

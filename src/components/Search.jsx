@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import '../styles/searchbar.css'
+
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -9,7 +11,7 @@ const Search = () => {
   };
 
   return (
-    <div>
+    <div className='seach-bar'>
       <input
         type="text"
         placeholder="Search..."
@@ -17,7 +19,7 @@ const Search = () => {
         onChange={handleSearch}
       />
       {/* Use Link component to navigate to search results page */}
-      <Link to={`/search-results?q=${searchTerm}`}>Search</Link>
+      <Link to={`/search-results?q=${searchTerm}`}/>
     </div>
   );
 };

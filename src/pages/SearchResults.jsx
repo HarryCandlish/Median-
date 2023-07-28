@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {NewsPosts} from '../data/NewsPosts'; // Import the data from the data.js file
 
+import QuoteGenerator from '../components/QuoteGenerator';
+import Search from '../components/Search';
+
+
 const SearchResults = () => {
   const [searchParams] = useSearchParams();
   const queryParameter = searchParams.get('q');
@@ -25,6 +29,7 @@ const SearchResults = () => {
 
         if (aCategoryMatch && !bCategoryMatch) return -1;
         if (!aCategoryMatch && bCategoryMatch) return 1;
+        return 0;
       });
       return sortedByRelevance;
     }
@@ -37,13 +42,19 @@ const SearchResults = () => {
       return sortedByDate;
     } else {
       // Default: return the original filtered data
-      return filteredData;
-    }
+      return filteredData, console.log(filteredData);
+      }
   };
 
   const sortedData = sortData();
 
-  return (
+    // Check if there is a search query
+  const hasSearchQuery = queryParameter !== null && queryParameter !== '';
+
+  // Check if there are search results to display
+  const hasSearchResults = filteredData.length > 0;
+
+    return (
     <div>
       {/* Add the "Sort By" dropdown */}
       <div>
@@ -56,21 +67,31 @@ const SearchResults = () => {
           <option value="relevance">Relevance</option>
           <option value="dateUploaded">Date Uploaded</option>
         </select>
+        <Search/>
       </div>
+      
+      {/* Display the QuoteGenerator component if there are no search results */}
+      {!hasSearchQuery && <QuoteGenerator />}
 
-      {/* Display the sorted search results */}
-      <h1>Search Results for: {queryParameter}</h1>
-      {sortedData.length > 0 ? (
-        <ul>
-          {sortedData.map((item) => (
-            <li key={item.id}>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No search results found.</p>
+
+     {/* Display the sorted search results */}
+     {hasSearchQuery && (
+        <>
+          <h1>Search Results for: {queryParameter}</h1>
+          {hasSearchResults ? (
+            <ul>
+              {sortedData.map((item) => (
+                <li key={item.id}>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            // Render a message if there are no search results
+            <p>No search results found.</p>
+          )}
+        </>
       )}
     </div>
   );
